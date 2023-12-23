@@ -5,4 +5,4 @@ Can be download from
 https://aws.amazon.com/jp/architecture/icons/
 
 ### Data Preprocessing
-get all of the png files and save them to a single folder
+get all of the png files and save them to satisfy pytorch ImageFolder
