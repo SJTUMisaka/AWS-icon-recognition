@@ -53,15 +53,17 @@ def train_test_split(source_root, train_root, test_root, train_ratio=0.8):
             random.shuffle(images)  # Randomize the list of images
 
             num_train = max(1, int(len(images) * train_ratio))  # At least one image in training
+            num_test = max(1, int(len(images) * (1 - train_ratio)))  # At least one image in testing
 
             # Split and copy images
             for i, img in enumerate(images):
                 src_img_path = os.path.join(class_path, img)
                 if i < num_train:
                     dst_img_path = os.path.join(train_class_path, img)
-                else:
+                    shutil.copy(src_img_path, dst_img_path)
+                if len(images) - i <= num_test:
                     dst_img_path = os.path.join(test_class_path, img)
-                shutil.copy(src_img_path, dst_img_path)
+                    shutil.copy(src_img_path, dst_img_path)
 
 get_png_files(folder_source, folder_target)
 train_test_split(folder_target, folder_train, folder_test, train_ratio)
