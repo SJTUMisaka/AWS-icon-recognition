@@ -3,7 +3,7 @@ import torch.nn as nn
 from torchvision import transforms
 from PIL import Image
 from torchvision import models
-from dataloader import get_data_loaders
+from model import get_data_loaders
 
 num_classes = 838
 

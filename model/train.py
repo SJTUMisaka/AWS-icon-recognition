@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 from torchvision import models
-from dataloader import get_data_loaders
+from model import get_data_loaders
 
 train_loader, test_loader = get_data_loaders()
 num_classes = 838
