@@ -4,7 +4,7 @@ import axios from 'axios';
 const ImageUploader: React.FC = () => {
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
     const [imagePreviewUrl, setImagePreviewUrl] = useState<string | null>(null);
-    const [uploadResult, setUploadResult] = useState<{ class: string; probability: number } | null>(null);
+    const [uploadResult, setUploadResult] = useState<{ class: string; probability: number; image_url: string} | null>(null);
 
     const previewImage = (file: File) => {
         const reader = new FileReader();
@@ -57,8 +57,13 @@ const ImageUploader: React.FC = () => {
             <div>
                 {uploadResult && (
                     <div>
-                        <p>Class: {uploadResult.class}</p>
+                        <p>Prediction: {uploadResult.class}</p>
                         <p>Probability: {uploadResult.probability.toFixed(2)}</p>
+                        <img
+                            src={'http://localhost:8000'+uploadResult.image_url}
+                            alt="Predicted Label"
+                            style={{width: 'auto', height: '200px'}}
+                            />
                     </div>
                 )}
             </div>
