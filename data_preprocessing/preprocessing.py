@@ -2,10 +2,10 @@ import os
 import shutil
 import random
 
-folder_source = '../../data/awsIcons/'
-folder_target = '../../data/awsIcons_processed/'
-folder_train = '../../data/train/'
-folder_test = '../../data/test/'
+folder_source = 'data/awsIcons/'
+folder_target = 'data/awsIcons_processed/'
+folder_train = 'data/train/'
+folder_test = 'data/test/'
 train_ratio = 0.8
 
 def get_png_files(folder_source, folder_target):

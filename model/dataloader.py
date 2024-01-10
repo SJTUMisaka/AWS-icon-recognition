@@ -1,8 +1,8 @@
 from torchvision import datasets, transforms
 from torch.utils.data import DataLoader
 
-train_root = '../../data/train/'
-test_root = '../../data/test/'
+train_root = 'data/train/'
+test_root = 'data/test/'
 batch_size = 50
 target_size = (64, 64)
 
