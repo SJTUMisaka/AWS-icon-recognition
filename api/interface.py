@@ -8,7 +8,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
-app.mount("/static", StaticFiles(directory="../../data/awsIcons_processed"), name="static")
+app.mount("/static", StaticFiles(directory="data/awsIcons_processed"), name="static")
 
 # CORS
 app.add_middleware(
@@ -28,7 +28,7 @@ async def create_upload_file(file: UploadFile = File(...)):
     image = Image.open(image_stream)
     predicted_class, probability = predict(image)
 
-    directory = f"../../data/awsIcons_processed/{predicted_class}"
+    directory = f"data/awsIcons_processed/{predicted_class}"
     if not os.path.exists(directory):
         return {"class": predicted_class, "probability": probability, "image_url": None}
 

@@ -24,9 +24,8 @@ def predict(image: Image, model_path: str='best_model.pth'):
     num_ftrs = model.fc.in_features
     model.fc = nn.Linear(num_ftrs, num_classes)
 
-    model.load_state_dict(torch.load(model_path))
-
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    model.load_state_dict(torch.load(model_path, map_location=device))
     model.to(device)
 
     model.eval()
